@@ -1,46 +1,44 @@
 
- //Compare two json objects:
-  const obj1 = {
-        "name":"person",
-        "age":"5"
-    };
-    const obj2 = {
-        "age":"5",
+
+// To compare the JSON ,we write a function and it would return the True or false after comparing the two objects.
+    function compareJson (obj1,obj2){
+     const sortedString1 = JSON.stringify(obj1, Object.keys(obj1).sort());
+     const sortedString2 = JSON.stringify(obj2, Object.keys(obj2).sort());
+
+     return sortedString1 === sortedString2;
+    }
+
+ // Compare two JSON objects:
+    function compareJson (obj1,obj2){
+      const sortedString1 = JSON.stringify(obj1, Object.keys(obj1).sort());
+      const sortedString2 = JSON.stringify(obj2, Object.keys(obj2).sort());
+
+      return sortedString1 === sortedString2;
+    }
+    const json1 = {
+        "name": "person",
+        "age": "5"
+     };
+    const json2 = {
+        "age": "5",
         "name": "person"
     }
+console.log(compareJson(json1,json2));
+VM57:15 true
 
-    const keysobj1 = Object.keys(obj1);
-    const keysobj2 = Object.keys(obj2);
-    const valuesobj1 = Object.values(obj1);
-    const valuesobj2 = Object.values(obj2);
-    let biggestkey = 0;
-    if (keysobj1.length>keysobj2.length){
-         biggestkey = keysobj1.length;
-    }
-    if (keysobj1.length<keysobj2.length){
-         biggestkey = keysobj1.length;
-    }
-    else if (keysobj1.length=keysobj2.length){
-        biggestkey = keysobj1.length;
+ // Compare two JSON objects:
+  const json1 = {
+        "name": "person",
+        "age": "5"
     };
+    const json2 = {
+        "age": "6",
+        "name": "person"
+    }
+console.log(compareJson(json1,json2));
+VM64:17 false
 
-    for (let i=0;i<biggestkey; i++){
-        if (keysobj1[i]===keysobj2[i] && valuesobj1[i]===valuesobj2[i]){
-            console,log(`Both are same objects`);
-        }
-        else{
-            console.log(`${keysobj1[i]}:${valuesobj1[i]}, ${keysobj2[i]} : ${valuesobj2[i]}`);
-        }
-    };
-// answer
-// [Running] node "d:\Guvi class\Day4\task\task4.js"
-// name:person, age : 5
-// age:5, name : person
-
-// [Done] exited with code=0 in 0.097 seconds
-// //exercise 2:
-
-// print all the countries,region,subregion and population: 
+//Print all the countries, regions,subregion and populations: 
 let request = new XMLHttpRequest();
 request.open("GET", "https://restcountries.com/v3.1/all");
 request.send();
