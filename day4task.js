@@ -8,13 +8,6 @@
      return sortedString1 === sortedString2;
     }
 
- // Compare two JSON objects:
-    function compareJson (obj1,obj2){
-      const sortedString1 = JSON.stringify(obj1, Object.keys(obj1).sort());
-      const sortedString2 = JSON.stringify(obj2, Object.keys(obj2).sort());
-
-      return sortedString1 === sortedString2;
-    }
     const json1 = {
         "name": "person",
         "age": "5"
